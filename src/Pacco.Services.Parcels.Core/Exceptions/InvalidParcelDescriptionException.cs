@@ -1,3 +1,5 @@
+using Convey.Exceptions;
+
 namespace Pacco.Services.Parcels.Core.Exceptions
 {
     public class InvalidParcelDescriptionException : DomainException
