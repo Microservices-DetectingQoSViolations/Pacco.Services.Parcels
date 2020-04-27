@@ -18,6 +18,7 @@ using Convey.MessageBrokers.Outbox.Mongo;
 using Convey.MessageBrokers.RabbitMQ;
 using Convey.Metrics.AppMetrics;
 using Convey.Persistence.Redis;
+using Convey.QoS.Violation;
 using Convey.Tracing.Jaeger;
 using Convey.Tracing.Jaeger.RabbitMQ;
 using Convey.WebApi;
@@ -69,6 +70,7 @@ namespace Pacco.Services.Parcels.Infrastructure
                 .AddRedis()
                 .AddMetrics()
                 .AddJaeger()
+                .AddQoSTrackingDecorators()
                 .AddHandlersLogging()
                 .AddMongoRepository<CustomerDocument, Guid>("customers")
                 .AddMongoRepository<ParcelDocument, Guid>("parcels")

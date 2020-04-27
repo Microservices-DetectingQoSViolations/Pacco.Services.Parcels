@@ -1,4 +1,5 @@
 using System;
+using Convey.Exceptions;
 
 namespace Pacco.Services.Parcels.Core.Exceptions
 {

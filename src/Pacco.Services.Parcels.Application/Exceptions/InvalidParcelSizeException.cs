@@ -1,3 +1,5 @@
+using Convey.Exceptions;
+
 namespace Pacco.Services.Parcels.Application.Exceptions
 {
     public class InvalidParcelSizeException : AppException
