@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Convey;
 using Convey.Secrets.Vault;
 using Convey.Logging;
+using Convey.QoS.Violation.Runtime;
 using Convey.Types;
 using Convey.WebApi;
 using Convey.WebApi.CQRS;
@@ -42,7 +43,8 @@ namespace Pacco.Services.Parcels.Api
                         .Get<GetParcels, IEnumerable<ParcelDto>>("parcels")
                         .Delete<DeleteParcel>("parcels/{parcelId}")
                         .Post<AddParcel>("parcels",
-                            afterDispatch: (cmd, ctx) => ctx.Response.Created($"parcels/{cmd.ParcelId}"))))
+                            afterDispatch: (cmd, ctx) => ctx.Response.Created($"parcels/{cmd.ParcelId}")))
+                    .UseRuntimeMetrics())
                 .UseLogging()
                 .UseVault();
     }

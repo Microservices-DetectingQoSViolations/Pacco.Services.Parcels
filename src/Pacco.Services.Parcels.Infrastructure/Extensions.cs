@@ -83,7 +83,7 @@ namespace Pacco.Services.Parcels.Infrastructure
                 .UseSwaggerDocs()
                 .UseJaeger()
                 .UseConvey()
-                .UseQoS()
+                .UseQoSCache()
                 .UsePublicContracts<ContractAttribute>()
                 .UseMetrics()
                 .UseRabbitMq()
